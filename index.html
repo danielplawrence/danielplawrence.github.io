@@ -140,7 +140,9 @@ body {
 <h2>Disclaimer! Work in progress!</h2>
 <h2>I would love your comments!: email daniel.lawrence@ed.ac.uk!</h2>
 
-<p>My dissertation investigates how listeners use small pronunciation differences to infer aspects of a talker’s social identity. It explores questions like these:</p>
+<p>When we listen to someone speak, we are doing two things: understanding what is being said, and understanding who is doing the speaking. As if understanding linguistic meaning wasn&#39;t hard enough, understanding the social meanings encoded in speech is also a challening task, firstly because speech sounds are very complex, and secondly because society is very complex.
+	
+My dissertation investigates this process of sociolinguistic inference: how listeners use small pronunciation differences to infer aspects of a talker’s social identity. It explores questions like these:</p>
 
 <ul>
 <li>How do people know which linguistic features sound &#39;old&#39; or &#39;middle-class&#39;?</li>
@@ -257,9 +259,9 @@ I created the stimuli using a technique called vocoding, which allowed me to tak
 
 <p>\( P(Social\, category|Vowel\, variant) \) </p>
 
-<p>To get at these values, we also need to take into account the fact that people might be biased one way or the other. During actual sociolinguistic perception, listeners have a lot of contextual information which might influence their decision &ndash; previous experience of the talker&#39;s speech; other socially-meaningful cues, etc. It might also be that some people are more biased toward selecting a &#39;working-class&#39; or &#39;middle-class&#39; image. </p>
+<p>To get at these values, we also need to take into account the fact that people might be biased one way or the other. During sociolinguistic perception, listeners have a lot of contextual information which might influence their decision &ndash; previous experience of the talker&#39;s speech; other socially-meaningful cues, etc. It might also be that some people are more generally biased toward selecting a &#39;working-class&#39; or &#39;middle-class&#39; image. </p>
 
-<p>To understand this process , I&#39;m going to model listeners&#39; responses using logistic regression. I&#39;ve fit a model for each vowel and each social dimension (social class, age, and urban/rural). To do this, I used Markov Chain Monte Carlo sampling using Stan: <a href="http://mc-stan.org">http://mc-stan.org</a>. Priors for the models were set using the recommendations in this paper from Andrew Gelman: <a href="http://bit.ly/2dAoD1a">http://bit.ly/2dAoD1a</a>. The plots below show the predictions from each model, expressing the conditional probability of a particular social selection (&#39;Working Class&#39;, &#39;Rural&#39;, or &#39;Old&#39;) given a particular pronunciation of /o/ or /u/. The error bars represent the 95% credible interval for each estimate, meaning that at the current state of knowledge we believe there is a 95% chance that the population-level parameter lies within that bound. If the interval of a given prediction crosses .5, it is unlikely that the vowel in question had a reliable effect on listeners&#39; responses. If the intervals for two predictions cross over, it is unlikely that they are reliably different.</p>
+<p>To understand how sociolinguistic inference works, I&#39;m going to model listeners&#39; responses using logistic regression. I&#39;ve fit a model for each vowel and each social dimension (social class, age, and urban/rural). To do this, I used Markov Chain Monte Carlo sampling using Stan: <a href="http://mc-stan.org">http://mc-stan.org</a>. Priors for the models were set using the recommendations in this paper from Andrew Gelman: <a href="http://bit.ly/2dAoD1a">http://bit.ly/2dAoD1a</a>. The plots below show the predictions from each model, expressing the conditional probability of a particular social selection (&#39;Working Class&#39;, &#39;Rural&#39;, or &#39;Old&#39;) given a particular pronunciation of /o/ or /u/. The error bars represent the 95% credible interval for each estimate, meaning that at the current state of knowledge we believe there is a 95% chance that the population-level parameter lies within that bound. If the interval of a given prediction crosses .5, it is unlikely that the vowel in question had a reliable effect on listeners&#39; responses. If the intervals for two predictions cross over, it is unlikely that they are reliably different.</p>
 
 <h3>Results for /u/</h3>
 
@@ -303,8 +305,10 @@ I created the stimuli using a technique called vocoding, which allowed me to tak
 
 <p>I&#39;ve ordered these stimuli from left to right: the images on the left seemed to be selected most often when a listener heard fronted, diphthongal /o/ or back, monophthongal /u/, and the images on the right were selected when a listener heard back,diphthongal /u/ and back, monophthongal /o/. We can see that </p>
 
-<p>*The effects for each vowel seem to correlate: the images which were cued by variation in /o/ are also cued by variation in /u/.
-*Moving from left to right, the responses seem to mirror each other &ndash; the responses for the &#39;chav&#39; image are an almost mirror image of the responses for the &#39;insurance man&#39; image.</p>
+<ul>
+<li>The effects for each vowel seem to correlate: the images which were cued by variation in /o/ are also cued by variation in /u/.</li>
+<li>Moving from left to right, the responses seem to mirror each other &ndash; the responses for the &#39;chav&#39; image are an almost mirror image of the responses for the &#39;insurance man&#39; image.</li>
+</ul>
 
 <p>I think that this might represent a relatively simple heuristic York listeners use when perceiving variation in /o/ and /u/: they percieve this variation as more or less &#39;broad&#39; (to the right of this continuum) or &#39;posh&#39; (to the left of the continuum). The fact that these particular images attracted such consistent responses reflects their prototypicality as types of &#39;broad&#39; or &#39;posh&#39; speaker.</p>
 
@@ -356,7 +360,7 @@ We can see that a lot of people have a similar pattern &ndash; for /u/, most peo
 
 <p><img src="social_inference.png" alt="Social inference is complex!."/></p>
 
-<p>When we listen to someone speak, we are doing two things: understanding what is being said, and understanding who is doing the speaking. As if understanding linguistic meaning wasn&#39;t hard enough, understanding the social meanings encoded in speech is also a challening task, firstly because speech sounds are very complex, and secondly because society is very complex. How do we manage this?</p>
+<p>When we listen to someone speak, we are doing two things: understanding what is being said, and understanding who is doing the speaking. As if understanding linguistic meaning wasn&#39;t hard enough, understanding the social meanings encoded in speech is also a challening task, firstly because speech sounds are very complex, and secondly because society is very complex. How do we manage to make sociolinguistic inferences under these conditions?</p>
 
 <p>One obvious answer might be that listeners simply remember how different people talk when they encounter them; they might then use that information to form social impressions when they hear a new person speaking. If this were the case, we’d expect  that people would have relatively reliable intuitions about the patterns of variation in their speech community, and we’d expect that those intuitions would match up with the actual social distribution of speech forms in that community. Another possibility is that social perceptions are less about the actual distribution of speech variation, and more about the stereotypes which circulate in society: which forms are ‘broad’ or ‘posh’, or which forms are typical of certain types of speaker.</p>
 
